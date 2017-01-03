@@ -22,7 +22,7 @@ public class SeleniumTest {
 	protected final String APPLICATION_URL = "http://40.76.12.174:8080/CreditCardApp/";
 	
 	// RemoteServer setting
-	String hub = "10.0.0.6";
+	String hub = "40.87.63.218";
 	String port = "4444";
 	
 	RemoteWebDriver driver;	
