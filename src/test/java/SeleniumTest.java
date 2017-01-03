@@ -22,7 +22,7 @@ public class SeleniumTest {
 	protected final String APPLICATION_URL = "http://40.76.12.174:8080/CreditCardApp/";
 	
 	// RemoteServer setting
-	String hub = "http://40.87.63.218";
+	String hub = "10.0.0.6";
 	String port = "4444";
 	
 	RemoteWebDriver driver;	
@@ -66,7 +66,7 @@ public class SeleniumTest {
 			System.out.println("Browser not supported");
 			break;
 		}	
-		driver = new RemoteWebDriver(new URL("http://" + hub + "/" + port + "wd/hub"), capabilities);
+		driver = new RemoteWebDriver(new URL("http://" + hub + ":" + port + "/wd/hub"), capabilities);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 20);
 		driver.get(APPLICATION_URL);
