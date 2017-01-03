@@ -1,9 +1,12 @@
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -18,7 +21,12 @@ public class SeleniumTest {
 	protected final String BROWSER = "chrome";
 	protected final String APPLICATION_URL = "http://40.76.12.174:8080/CreditCardApp/";
 	
+	// RemoteServer setting
+	String hub = "http://40.87.63.218";
+	String port = "4444";
+	
 	RemoteWebDriver driver;	
+	DesiredCapabilities capabilities;
 	WebDriverWait wait;
 	
 	// Application specific test data
@@ -41,21 +49,24 @@ public class SeleniumTest {
 	// Trying to make a test with hub and node in the same system that is localhost
 	
 	@BeforeTest
-	public void setUp() {
+	public void setUp() throws MalformedURLException {
 		String executable = "";
 		switch(BROWSER) {
 		case "chrome":
 			executable = System.getProperty("user.dir") + "/lib/chromedriver.exe";
 			System.setProperty("webdriver.chrome.driver", executable);
-			driver = new ChromeDriver();
+			//driver = new ChromeDriver();
+			capabilities = DesiredCapabilities.chrome();
 			break;
 		case "firefox":
-			driver = new FirefoxDriver();
+			//driver = new FirefoxDriver();
+			capabilities = DesiredCapabilities.firefox();
 			break;
 		default:
 			System.out.println("Browser not supported");
 			break;
-		}		
+		}	
+		driver = new RemoteWebDriver(new URL("http://" + hub + "/" + port + "wd/hub"), capabilities);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 20);
 		driver.get(APPLICATION_URL);
@@ -67,7 +78,7 @@ public class SeleniumTest {
 		String title = "Credit Card Application";
 		Assert.assertEquals(title, driver.getTitle());
 		
-		// Deal with username
+		// Deal with userName
 		driver.findElement(userNameInput).click();
 		driver.findElement(userNameInput).clear();
 		driver.findElement(userNameInput).sendKeys(userName);
