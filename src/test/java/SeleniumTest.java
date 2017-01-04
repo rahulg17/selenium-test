@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 
 public class SeleniumTest {
 	
-	protected final String BROWSER = "chrome";
+	protected final String BROWSER = "firefox";
 	protected final String APPLICATION_URL = "http://40.76.12.174:8080/CreditCardApp/";
 	
 	// RemoteServer setting
