@@ -81,9 +81,9 @@ public class SeleniumHeadlessTest {
 		driver.findElement(cityInput).sendKeys(city);
 		
 		//deal with credit card type
-		WebElement creditType = driver.findElement(creditTypeList);
+		/*WebElement creditType = driver.findElement(creditTypeList);
 		Select select = new Select(creditType);
-		select.selectByValue(creditCardType);
+		select.selectByValue(creditCardType);*/
 		
 		driver.findElement(submitButton).click();
 		wait.until(ExpectedConditions.presenceOfElementLocated(confirmText));
