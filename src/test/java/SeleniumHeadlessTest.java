@@ -3,6 +3,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -20,9 +21,11 @@ public class SeleniumHeadlessTest {
 	protected final String BROWSER = "phantomjs";
 	protected final String APPLICATION_URL = "http://40.76.12.174:8080/CreditCardApp/";
 	
-	String phantomjspath = "/root/selenium/phantomjs/bin";
+	String phantomjspath = "/root/selenium/phantomjs/bin/phantomjs";
+	//String phantomjspath = "C:/Users/HSBC/Downloads/phantomjs/bin/phantomjs.exe";
 	
-	RemoteWebDriver driver;	
+	WebDriver driver;
+	//RemoteWebDriver driver;	
 	DesiredCapabilities capabilities;
 	WebDriverWait wait;
 	
@@ -47,9 +50,10 @@ public class SeleniumHeadlessTest {
 	
 	@BeforeTest
 	public void setUp() throws MalformedURLException {
-		capabilities.setCapability("takesScreenshot", false);
-		capabilities.setCapability("phantomjs.binary.path", phantomjspath);
-		driver = new PhantomJSDriver(capabilities);
+		//capabilities.setCapability("takesScreenshot", false);
+		//capabilities.setCapability("phantomjs.binary.path", phantomjspath);
+		System.setProperty("phantomjs.binary.path", phantomjspath);
+		driver = new PhantomJSDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 20);
 		driver.get(APPLICATION_URL);
