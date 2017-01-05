@@ -21,7 +21,7 @@ public class SeleniumHeadlessTest {
 	protected final String BROWSER = "phantomjs";
 	protected final String APPLICATION_URL = "http://40.76.12.174:8080/CreditCardApp/";
 	
-	String phantomjspath = "/root/selenium/phantomjs/bin/phantomjs";
+	String phantomjspath = "/opt/selenium/phantomjs/bin/phantomjs";
 	//String phantomjspath = "C:/Users/HSBC/Downloads/phantomjs/bin/phantomjs.exe";
 	
 	WebDriver driver;
