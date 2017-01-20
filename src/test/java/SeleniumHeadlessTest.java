@@ -44,7 +44,7 @@ public class SeleniumHeadlessTest {
 	By cityInput = By.name("city");
 	// By creditTypeList = By.name("creditCard");
 	By submitButton = By.xpath("//input[@value='SUBMIT']");
-	By confirmText = By.xpath("//*[contains(text(),'Welcome')]");
+	By confirmText = By.xpath("//*[contains(text(),'WELCOME')]");
 	
 	// Trying to make a test with hub and node in the same system that is localhost
 	
