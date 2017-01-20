@@ -35,7 +35,7 @@ public class SeleniumHeadlessTest {
 	String mobileNumber 	= "99530";
 	String city 			= "Lucknow";
 	// String creditCardType 	= "silver";
-	String expectedPage 	= "Credit Card Application Details";
+	String expectedPage 	= "CREDIT CARD APPLICATION DETAILS";
 	
 	// Application specific elements
 	
