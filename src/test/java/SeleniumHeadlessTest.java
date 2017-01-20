@@ -34,7 +34,7 @@ public class SeleniumHeadlessTest {
 	String userName 		= "ashukla";
 	String mobileNumber 	= "99530";
 	String city 			= "Lucknow";
-	String creditCardType 	= "silver";
+	// String creditCardType 	= "silver";
 	String expectedPage 	= "Credit Card Application Details";
 	
 	// Application specific elements
@@ -42,7 +42,7 @@ public class SeleniumHeadlessTest {
 	By userNameInput = By.name("name");
 	By numberInput = By.name("number");
 	By cityInput = By.name("city");
-	By creditTypeList = By.name("creditCard");
+	// By creditTypeList = By.name("creditCard");
 	By submitButton = By.xpath("//input[@value='SUBMIT']");
 	By confirmText = By.xpath("//*[contains(text(),'Welcome')]");
 	
